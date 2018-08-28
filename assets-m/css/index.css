@@ -1,0 +1,128 @@
+/**
+ * ENDE2019
+ * createTime 2018.08.28
+ * author Jim Wang
+ * version 1.0
+ */
+.ibanner_warp{width: 100%;}
+.ibanner_box_1,.ibanner_box_2,.ibanner_box_3{margin-bottom: .2em;}
+.ibanner_warp img{width: 100%;}
+.ibanner_box_4{overflow: hidden;}
+.ibanner_box_5{overflow: hidden;}
+.ibanner_box_4 .col{width: 50%;display: inline-block;margin:0;padding: 0;float: left;}
+.ibanner_box_5 .col{float: left;width: 33.333333333%;margin:0;padding:0;}
+
+.ibanner_warp .swiper-pagination{text-align: right;left: -1em;}
+
+.carousel_warp .swiper-slide img{width: 100%;}
+
+.swiper-pagination-bullet{border-radius:0;background: #1e3a5e;border:1px solid #fff;}
+.carousel_warp .swiper-pagination-bullet-active{}
+
+.menuBox{padding:0;}
+.menuBox ul,.menuBox ul li{list-style: none; margin: 0;padding: 0;}
+
+
+.menuBox{ overflow:hidden;}
+.menuBox li{ float:left; width:33.3333%;position:relative;}
+.menuBox li u{ width:6px; height:6px;border-radius:10px; background:#c80917; position:absolute; right:12px; top:12px; display:block;}
+.menuBox li i{ background-position:center center; background-size:40px; display:inline-block; background-repeat:no-repeat; width:53px; height:53px;}
+.menuBox li>a{ position:relative; padding:0px; text-align:center; font-size:1.2em; padding:20px 0; display:block; color:#666;}
+.menuBox li i.icon1{ background-image:url(../../assets-m/images/index/index_ico_01.png)}
+.menuBox li i.icon2{ background-image:url(../../assets-m/images/index/index_ico_02.png)}
+.menuBox li i.icon3{ background-image:url(../../assets-m/images/index/index_ico_03.png)}
+.menuBox li i.icon4{ background-image:url(../../assets-m/images/index/index_ico_04.png)}
+.menuBox li i.icon5{ background-image:url(../../assets-m/images/index/index_ico_05.png)}
+.menuBox li i.icon6{ background-image:url(../../assets-m/images/index/index_ico_06.png)}
+.menuBox li i.icon7{ background-image:url(../../assets-m/images/index/index_ico_07.png)}
+.menuBox li i.icon8{ background-image:url(../../assets-m/images/index/index_ico_08.png)}
+.menuBox li i.icon9{ background-image:url(../../assets-m/images/index/index_ico_09.png)}
+
+.menuBox li.bBor_cut i.icon1{ background-image:url(../../assets-m/images/index/index_ico_01_2.png)}
+.menuBox li.bBor_cut i.icon2{ background-image:url(../../assets-m/images/index/index_ico_02_2.png)}
+.menuBox li.bBor_cut i.icon3{ background-image:url(../../assets-m/images/index/index_ico_03_2.png)}
+.menuBox li.bBor_cut i.icon4{ background-image:url(../../assets-m/images/index/index_ico_04_2.png)}
+.menuBox li.bBor_cut i.icon5{ background-image:url(../../assets-m/images/index/index_ico_05_2.png)}
+.menuBox li.bBor_cut i.icon6{ background-image:url(../../assets-m/images/index/index_ico_06_2.png)}
+.menuBox li.bBor_cut i.icon7{ background-image:url(../../assets-m/images/index/index_ico_07_2.png)}
+.menuBox li.bBor_cut i.icon8{ background-image:url(../../assets-m/images/index/index_ico_08_2.png)}
+.menuBox li.bBor_cut i.icon9{ background-image:url(../../assets-m/images/index/index_ico_09_2.png)}
+
+.menuBox li.bBor:after{background:#d6d6d6;}
+.menuBox li>a.rBor:after{background:#d6d6d6;}
+
+.proItem{ overflow:hidden; width:100%;}
+.proItem li{ float:left; width:50%;}
+.proItem li img{ float:left;}
+
+.telBox{ padding:30px; text-align:center; font-size:1.4em; line-height:2.4em;}
+.telBox .tel{ display:inline-block; width:180px; height:42px; line-height:4.2em; border:1px solid #bc9882; background:url(../img/home/tel.png) no-repeat 10% center; background-size:20px; color:#bc9882; font-size:1.6em; text-indent:2em;border-radius:5px; margin:20px 0 10px 0;}
+
+header{ position: absolute; background:none;}
+header.showMenu{ position:relative;}
+
+.banner{float:left; width:100%;} 
+.banner img{ float:left; margin-bottom:2px;}
+.proItem{ float:left;margin-bottom:2px;}
+.telBox{ float:left; width:100%; padding:30px 0;}
+.main{ overflow:hidden;}
+
+.hotList{ float:left;margin-bottom:2px;}
+.hotList ul{}
+.hotList li{ width:50%; overflow:hidden; float:left; position:relative;}
+.hotList li>a{ display:block; }
+.hotList .pic{ overflow: hidden; vertical-align: middle; text-align: center;padding:20px; padding-bottom:40px; width:100%;-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+.hotList p{ text-align:center; color:#000; height:24px; line-height:24px; padding-top:5px; position:absolute; left:0; bottom:20px; width:100%;}
+.hotList .color_1{background: #e8d4c7;}
+.hotList .color_2{ background:#c2ced2;}
+.hotList .color_3{ background:#969696;}
+.hotList .color_4{ background:#f4f4f4;}
+.hotList .color_5{ background:#b6dedb;}
+.hotList .color_6{ background:#fbe8eb;}
+
+.hotList li:nth-child(1){border-right:1px solid rgba(255,255,255,0.75); border-bottom:1px solid rgba(255,255,255,0.75);}
+.hotList li:nth-child(2){ border-bottom:1px solid rgba(255,255,255,0.75);}
+.hotList li:nth-child(3){border-right:1px solid rgba(255,255,255,0.75);}
+
+.hotList{ width:100%;}
+.hotList ul{ overflow:hidden;}
+
+
+.bBor .bor_list{position:relative;left: 0;width:300%;background:#fff;overflow: hidden;z-index: 10;padding:10px 20px;display: none;border-bottom:1px solid #d6d6d6;}
+.bBor .bor_list li{width: 25%;float: left;text-align: center;line-height: 20px;padding:10px 0;}
+
+
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:2em;}
+.swiper-pagination-bullet{    width: .8em;height: .8em;display: inline-block;}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{margin:0 .5em;}
+/*描边*/
+.tBor:before{position:absolute;content:"";height:1px;background:rgba(220,220,220,.5);left:0;right:0}
+.tBor:before{top:0}
+.lBor:before,.rBor:after{position:absolute;content:"";width:1px;background:rgba(220,220,220,.5);top:0;bottom:0}
+.bBor .after_line{width: 100%;position: absolute;bottom:0;left: 0;height: 1px;background: #d6d6d6;}
+.bBor_cut .after_line{height:2px;background:#002e64;}
+.bBor_cut .rclick p{color: #002e64;}
+.lBor:before{left:0}
+.rBor:after{right:0}
+.trblBor:after{position:absolute;content:"";top:0;left:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:100%;height:100%;border:1px solid rgba(220,220,220,.5);point-events:none}
+/*@media (min--moz-device-pixel-ratio:1.5),(-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5),(min-resolution:144dpi),(min-resolution:1.5dppx),(-ms-high-contrast:active),(-ms-high-contrast:none){.bBor:after,.tBor:before{-webkit-transform:scaleY(.5);-ms-transform:scaleY(.5);-o-transform:scaleY(.5);transform:scaleY(.5)}
+.lBor:before,.rBor:after{-webkit-transform:scaleX(.5);-ms-transform:scaleX(.5);-o-transform:scaleX(.5);transform:scaleX(.5)}
+.trblBor:after{width:200%;height:200%;-webkit-transform:scale(.5);-ms-transform:scale(.5);-o-transform:scale(.5);transform:scale(.5)}
+.lBor:before,.tBor:before,.trblBor:after{-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;transform-origin:0 0}
+.bBor:after,.rBor:after{-webkit-transform-origin:100% 100%;-moz-transform-origin:100% 100%;-ms-transform-origin:100% 100%;-o-transform-origin:100% 100%;transform-origin:100% 100%}
+}
+@media (-webkit-device-pixel-ratio:1.5){.bBor:after,.tBor:before{-webkit-transform:scaleY(.6666);-ms-transform:scaleY(.6666);-o-transform:scaleY(.6666);transform:scaleY(.6666)}
+.lBor:before,.rBor:after{-webkit-transform:scaleX(.6666);-ms-transform:scaleX(.6666);-o-transform:scaleX(.6666);transform:scaleX(.6666)}
+.trblBor:after{width:150%;height:150%;-webkit-transform:scale(.6666);-ms-transform:scale(.6666);-o-transform:scale(.6666);transform:scale(.6666)}
+}
+@media (-webkit-device-pixel-ratio:3){.bBor:after,.tBor:before{-webkit-transform:scaleY(.3333);-ms-transform:scaleY(.3333);-o-transform:scaleY(.3333);transform:scaleY(.3333)}
+.lBor:before,.rBor:after{-webkit-transform:scaleX(.3333);-ms-transform:scaleX(.3333);-o-transform:scaleX(.3333);transform:scaleX(.3333)}
+.trblBor:after{width:300%;height:300%;-webkit-transform:scale(.3333);-ms-transform:scale(.3333);-o-transform:scale(.3333);transform:scale(.3333)}
+}*/
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 768px) { 
+	.menuBox li i{ background-position:center center;  background-size:70px auto; display:inline-block; background-repeat:no-repeat; width:100px; height:100px;}
+
+}
