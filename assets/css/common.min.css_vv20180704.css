@@ -20,7 +20,8 @@ video {
 
 body,html {
     font-size: 14px;
-    color: #898989;
+    /*color: #898989;*/
+    color: #2a2a2a;
     -ms-overflow-style: scrollbar;
     font-family: "å¾®è½¯é›…é»‘"
 }
