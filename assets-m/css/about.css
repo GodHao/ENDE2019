@@ -461,8 +461,8 @@
     line-height: 1.5;
     font-size: 1.3rem;
     word-break: break-all;
-    word-spacing: 3px;
-    text-indent: 1.3rem;
+/*    word-spacing: 3px;
+    text-indent: 1.3rem;*/
 }
 
 .about_his_wrap p .ico_brand {

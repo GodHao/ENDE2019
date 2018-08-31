@@ -358,9 +358,10 @@ html {
     font-size: 1.2rem;
     color: #333;
     padding: 0 5px;
-    word-spacing: 2px;
-    text-indent: 1.2rem;
+/*    word-spacing: 2px;
+    text-indent: 1.2rem;*/
     line-height: 1.7;
+    text-align: justify;
 }
 .navdrop_menu p:first-of-type {
   margin-top : 10px;
