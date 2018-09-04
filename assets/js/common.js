@@ -5,7 +5,7 @@
  * version 1.0
  */
 
-//var baseURL = "http://i3r.scu.edu.cn/"; //服务器地址
+//var baseURL = "http://111.231.82.208/ENDE2019/"; //服务器地址
 var baseURL = "http://127.0.0.1:8020/ENDE2019/";//测试地址
 //加载网页内容
 var loadPage = function(page){

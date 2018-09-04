@@ -476,7 +476,7 @@
 }
 
 .about_his_wrap_act .about_img_box {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -532,7 +532,7 @@
 }
 
 .swiper-button-prev {
-    background: url(../../assets-m/images/about/about_history/about_his_prev.png);
+    background: url(../../assets/images/about_his_prev.png);
     width: 35px;
     height: 35px;
     background-size: 100%;
@@ -541,7 +541,7 @@
 }
 
 .swiper-button-next {
-    background: url(../../assets-m/images/about/about_history/about_his_next.png);
+    background: url(../../assets/images/about_his_next.png);
     width: 35px;
     height: 35px;
     background-size: 100%;
