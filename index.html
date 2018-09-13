@@ -10,7 +10,7 @@
         var autoRedirect=function(){
             var w=window.screen.width;
             if (parseInt(w) < 960 && location.href.indexOf("/m/") < 0) {
-                location.href = location.pathname.replace("ENDE2019", "ENDE2019/m");
+                location.href = location.pathname+"m";
             }
         };
         autoRedirect();
@@ -181,6 +181,9 @@
 		    <div class="clearfix copyright" style="text-align: center;">
 		        <div class="col-md-12">
 		           Copyright©The 24th Electromagnetic Nondestructive Evaluation Workshop (ENDE2019)
+		        </div>
+		        <div class="col-md-12">
+		        	备案号：<a href="http://www.miitbeian.gov.cn" target="_blank">30153543981198565</a>
 		        </div>
 		    </div>
 		</div>
