@@ -131,14 +131,14 @@ header.mouseon .header nav a {
 
 header .logo {
     margin-left: 2em;
-    margin-top: 2.5em;
+    margin-top: 1em;
     position: relative;
     top: 0;
     z-index: 5
 }
 
 header .header {
-    width: 70%;
+    width: 80%;
     position: relative;
     top: 0;
     z-index: 5
@@ -156,9 +156,10 @@ header .header nav {
 
 header .header nav ul li {
     width: 10em;
-    m;m;height: 5em;
+    height: 5em;
     display: inline-block;
     text-align: center;
+    font-size:1.3em;
 }
 
 @media (min-width: 1480px) {
