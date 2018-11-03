@@ -23,7 +23,7 @@ body,html {
     /*color: #898989;*/
     color: #2a2a2a;
     -ms-overflow-style: scrollbar;
-    font-family: "å¾®è½¯é›…é»‘"
+    font-family: Georgia,"Times New Roman",Times,serif;
 }
 
 a {
@@ -138,7 +138,7 @@ header .logo {
 }
 
 header .header {
-    width: 80%;
+    width: 0%;
     position: relative;
     top: 0;
     z-index: 5
