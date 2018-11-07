@@ -69,274 +69,119 @@ a:hover {
     }
 }
 
-.breadcrumb {
-    background-color: transparent;
-    margin-top: 20px;
-    margin-bottom: 3em;
-    padding: 0;
-    font-size: 12px;
-    color: #999
-}
-
-.breadcrumb>li+li:before {
-    content: ">";
-    padding-right: .5em
-}
-
-.breadcrumb .active {
-    color: #999
-}
-
-.breadcrumb a {
-    color: #999
-}
-
 header {
-    position: absolute;
-    z-index: 500;
-    width: 100%
+    width: 100%;
+    height: 150px;
+    background: #0071bd;
+    color: #FFFFFF;
+}
+header a{
+	color: #fff;
+}
+header a:hover{
+	color: #fff;
 }
 
-header.theme-dark .header nav {
-    color: #666
+header .header-top{
+	height: 75px;
+	word-spacing: 0.3em;
+}
+.header-top .logo{
+	float: left;
+}
+.header-top .search{
+	float: right;
+	padding-top: 30px;
+	padding-right: 5%;
+}
+.input-group{
+	width: 230px;
+}
+.header-top .logo-text{
+	padding-top: 10px;
+	font-size: 16px;
+	font-family: Helvetica, sans-serif;
+	padding-left: 1.9%;
+}
+.logo-text .big{
+	font-size: 54px;
+}
+.logo-text .small{
+	font-family: georgia;
+	font-size: 20px;
+}
+.search input, button{
+	display: inline;
+}
+.search button{
+	background: #228B22;
+	border: 1px solid #228B22;
 }
 
-header.theme-dark .header nav a {
-    color: #666
+.header-nav{
+	height: 75px;
+	padding-top: 30px;
 }
 
-header.theme-dark-white .header nav {
-    color: #fff
+.header-nav nav ul li {
+    display: inline-block;
+    font-size:18px;
+    float: left;
+    font-family: sans-serif;
+    padding: 0 3.5%;
 }
 
-header.theme-dark-white .header nav a {
-    color: #fff
-}
-
-header.theme-bright .header nav {
-    color: #fff
-}
-
-header.theme-bright .header nav a {
-    color: #fff
-}
-
-header.mouseon .header nav {
-    color: #666!important
-}
-
-header.mouseon .header nav a {
-    color: #666!important
-}
-
-header .logo {
-    margin-left: 2em;
-    margin-top: 1em;
-    position: relative;
-    top: 0;
-    z-index: 5
-}
-
-header .header {
-    width: 0%;
-    position: relative;
-    top: 0;
-    z-index: 5
-}
-
-@media (max-width: 1024px) {
-    header .header {
-        width:80%
-    }
-}
-
-header .header nav {
-    height: 5em
-}
-
+@media only screen and (min-width: 1200px) {
 header .header nav ul li {
-    width: 10em;
-    height: 5em;
-    display: inline-block;
-    text-align: center;
-    font-size:1.3em;
+	font-size:16px;
+	padding: 0 2%;
+}
 }
 
-@media (min-width: 1480px) {
-    header .header nav ul li {
-        width:10em
-    }
-}
-
-header .header nav ul li a {
+header .header-nav nav ul li a {
     display: inline-block;
-    margin-top: 2.25em;
-    height: 2.75em;
+    padding: 10px 0;
     text-decoration: none;
 }
 
-header .header nav ul li:hover {
+header .header-nav nav ul li:hover {
     color: #0d396c
 }
 
-header .header nav ul li:hover a {
+header .header-nav nav ul li:hover a {
     color: #0d396c
 }
 
-header .header nav ul li.double-q {
+header .header-nav nav ul li.double-q {
     width: 8em
 }
 
-header .header nav ul li.zoom {
+header .header-nav nav ul li.zoom {
     width: 2em
 }
 
-header .docker-container {
-    width: 100%;
-    position: absolute;
-    min-height: 5em;
-    top: 0;
-    z-index: 2;
-    background-color: #fff;
-    -moz-opacity: .9;
-    opacity: .9;
-    display: none
+.header-title{
+	margin-left: 7%;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	padding-top: 10px;
+	font-size: 60px;
+	color: #2c8ec4;
+	float: left;
+	width: 30%;
 }
-
-header .docker-container .docker-content {
-    margin-top: 5em;
-    background-color: #f2f2f2
+.info-title{
+	width: 50%;
+	float: left;
+	padding-top: 10px;
+	text-align: center;
 }
-
-header .docker-container .docker-content .docker-container-width {
-    width: 70%;
-    text-align: left
+.info-title h3{
+	font-family: Ubuntu, sans-serif;
+	font-size: 22.5px;
+	font-weight: 500;
 }
-
-header .docker-container .docker-content .docker-container-width h5 {
-    color: #1a355e;
-    font-size: 1em;
-    border-right: 1px dashed #8f8f8f
-}
-
-header .docker-container .docker-content .docker-container-width a {
-    color: #666
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-product,header .docker-container .docker-content .docker-container-width .docker-container-selection,header .docker-container .docker-content .docker-container-width .docker-container-support {
-    display: none;
-    padding: 1em 0
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-product li,header .docker-container .docker-content .docker-container-width .docker-container-selection li,header .docker-container .docker-content .docker-container-width .docker-container-support li {
-    line-height: 2em
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection {
-    width: 36%;
-    margin-left: 20px
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection a {
-    height: 2em;
-    line-height: 2em
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection a:hover {
-    color: #1a355e
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection a span:first-child {
-    width: 28px;
-    height: 28px;
-    background: url(../images/bg-nav-selection.png) no-repeat 0 -28px;
-    display: inline-block
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection a span:nth-child(2) {
-    margin-left: .5em
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection a.doubleq:hover span:first-child {
-    background-position: 0 0
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection a.cabinet span:first-child {
-    background-position: -28px -28px
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-selection a.cabinet:hover span:first-child {
-    background-position: -28px 0
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-product{
-    width: 90%
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-product li ul li a:hover {
-    color: #1a355e
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support {
-    width: 62%;
-    margin-left: 180px
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a {
-    height: 2em;
-    line-height: 2em
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a:hover {
-    color: #1a355e
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a span:first-child {
-    width: 28px;
-    height: 28px;
-    background: url(../images/bg-nav-tas.png) no-repeat 0 -28px;
-    display: inline-block
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a span:nth-child(2) {
-    margin-left: .5em
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a.tech:hover span:first-child {
-    background-position: 0 0
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a.service-1350 span:first-child {
-    background-position: -28px -28px
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a.service-1350:hover span:first-child {
-    background-position: -28px 0
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a.six-year span:first-child {
-    background-position: -56px -28px
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a.six-year:hover span:first-child {
-    background-position: -56px 0
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a.faq span:first-child {
-    background-position: -84px -28px
-}
-
-header .docker-container .docker-content .docker-container-width .docker-container-support a.faq:hover span:first-child {
-    background-position: -84px 0
-}
-
-@media (min-width: 2048px) {
-    header {
-        width:1920px;
-        margin: 0 auto;
-        left: 0;
-        right: 0
-    }
+.info-title h4{
+	font-size: 18px;
 }
 
 .site-assistant {
