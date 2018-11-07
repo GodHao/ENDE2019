@@ -6,7 +6,7 @@
  */
 
 //var baseURL = "http://111.231.82.208/ENDE2019/"; //服务器地址
-var baseURL = "http://127.0.0.1:8020/ENDE2019/"
+//var baseURL = "http://127.0.0.1:8020/ENDE2019/"
 //var baseURL = "http://www.ende2019.com/";
 //var baseURL = "http://127.0.0.1:8020/ENDE2019/"
 var baseURL = "http://www.ende2019.com/";
@@ -34,8 +34,9 @@ function getCookie(key){
 	}
 }
 
-function search(keyword)
+function search()
 {
+	var keyword =  $(".form-search").val();
 	var data = {"query" : { "match" : { "keyword" : keyword}}};
 	$.ajax({
         type: "POST",
