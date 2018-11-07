@@ -8,6 +8,9 @@
 //var baseURL = "http://111.231.82.208/ENDE2019/"; //服务器地址
 var baseURL = "http://127.0.0.1:8020/ENDE2019/"
 //var baseURL = "http://www.ende2019.com/";
+//var baseURL = "http://127.0.0.1:8020/ENDE2019/"
+var baseURL = "http://www.ende2019.com/";
+var searchURL = "http://www.ende2019.com:9200/ende2019/ende/_search";
 //加载网页内容
 var loadPage = function(page){
 	setCookie("currentPage",page);
@@ -29,4 +32,20 @@ function getCookie(key){
 			return decodeURI(arr2[1]);
 		}
 	}
+}
+
+function search(keyword)
+{
+	var data = {"query" : { "match" : { "keyword" : keyword}}};
+	$.ajax({
+        type: "POST",
+        url: searchURL,
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        success: function(data){
+	        if(data.hits.hits.length > 0){
+	        	loadPage(data.hits.hits[0]._source.page);
+	        }
+	    }
+    });																			
 }
