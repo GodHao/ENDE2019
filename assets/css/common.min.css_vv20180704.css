@@ -29,11 +29,18 @@ body,html {
 a {
     text-decoration: none
 }
-
-a:hover {
+a:link{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+a:active{
+	text-decoration: none;
+}
+a:visited {
     text-decoration: none
 }
-
 .container {
     width: 950px
 }
@@ -88,6 +95,7 @@ header .header-top{
 }
 .header-top .logo{
 	float: left;
+	padding-left: 1%;
 }
 .header-top .search{
 	float: right;
@@ -121,14 +129,26 @@ header .header-top{
 .header-nav{
 	height: 75px;
 	padding-top: 30px;
+	padding-left: 3%;
 }
 
 .header-nav nav ul li {
     display: inline-block;
-    font-size:18px;
+    font-size:16px;
     float: left;
     font-family: sans-serif;
     padding: 0 3.5%;
+    border-bottom: 5px solid transparent;
+}
+
+.header-nav ul li:not(.active):hover {
+	background: #0A78C8;
+	border-bottom: 5px solid #393939;
+	/*#DF5203*/
+}
+.header-nav ul li.active{
+	background: transparent;
+	border-bottom: 5px solid #DF5203;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -143,42 +163,31 @@ header .header-nav nav ul li a {
     padding: 10px 0;
     text-decoration: none;
 }
-
-header .header-nav nav ul li:hover {
-    color: #0d396c
-}
-
-header .header-nav nav ul li:hover a {
-    color: #0d396c
-}
-
-header .header-nav nav ul li.double-q {
-    width: 8em
-}
-
-header .header-nav nav ul li.zoom {
-    width: 2em
-}
-
-.header-title{
-	margin-left: 7%;
-	font-family: 'Lato', Arial, Helvetica, sans-serif;
+.content-title{
+	font-family: Arial, Helvetica, sans-serif;
 	padding-top: 10px;
-	font-size: 60px;
+	text-align: center;
+	
+}
+.full-name{
+	font-family: Ubuntu, sans-serif;
+	font-size: 24px;
+}
+.short-name{
 	color: #2c8ec4;
-	float: left;
-	width: 30%;
+	font-size: 30px;
+	margin: 0;
 }
 .info-title{
-	width: 50%;
-	float: left;
-	padding-top: 10px;
 	text-align: center;
 }
 .info-title h3{
 	font-family: Ubuntu, sans-serif;
 	font-size: 22.5px;
 	font-weight: 500;
+	letter-spacing: 0.1em;
+	word-spacing: 0.3em;
+	padding-bottom: 5px;
 }
 .info-title h4{
 	font-size: 18px;
