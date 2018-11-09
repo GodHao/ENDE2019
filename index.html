@@ -10,7 +10,7 @@
         var autoRedirect=function(){
             var w=window.screen.width;
             if (parseInt(w) < 960 && location.href.indexOf("/m/") < 0) {
-                location.href = location.pathname+"m";
+                location.href = location.pathname+"m/";
             }
         };
         autoRedirect();
@@ -28,7 +28,7 @@
       <div class="container">
     	<div class="header-top">
     	  <div class="logo">
-		    <a href="javascript:void(0);" onclick="loadPage('cn_main.html');">
+		    <a href="javascript:void(0);">
 		    	<div class="logo-text">
 		    		<span class="big">Welcome</span>
 		    		<span class="small"><i> to ENDE 2019!</i></span>
@@ -47,10 +47,10 @@
 		  </div>
 		  		    <!--assistant begin-->
 		    <div class="site-assistant">
-		    	<div class="language">Switch Language
+		    	<div class="language">
 		    		<select id="switch-language">
-		    			<option>中文</option>
-		    			<option>English</option>
+		    			<option selected="selected" value="0">English</option>
+		    			<option value="1">中文</option>
 		    		</select>
 		    	</div>
 		        <a href="javascript:;" class="assistant-switch"><img src="./assets/images/icon-assistant-open.jpg" data-icon-open="./assets/images/icon-assistant-open.jpg" data-icon-close="./assets/images/icon-assistant-close.jpg" class="img-responsive"></a>
@@ -182,7 +182,7 @@
     <script src="assets/js/view.js"></script>
     <script>
     	var currentPage = getCookie("currentPage");
-    	if(currentPage != 'cn_index.html'){
+    	if(currentPage != 'index.html'){
     		loadPage(currentPage);
     	}
     </script>

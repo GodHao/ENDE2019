@@ -4,16 +4,21 @@
  * author Jim Wang (Hao Wang)
  * version 1.0
  */
-
-//var baseURL = "http://111.231.82.208/ENDE2019/"; //服务器地址
-//var baseURL = "http://127.0.0.1:8020/ENDE2019/"
+var baseURL = "http://127.0.0.1:8020/ENDE2019/"
 //var baseURL = "http://www.ende2019.com/";
-//var baseURL = "http://127.0.0.1:8020/ENDE2019/"
-var baseURL = "http://www.ende2019.com/";
 var searchURL = "http://www.ende2019.com:9200/ende2019/ende/_search";
 //加载网页内容
-var loadPage = function(page){
-	setCookie("currentPage",page);
+var loadPage = function(page, lang){
+	if(!lang){
+		var currentPage = getCookie("currentPage");
+		if(currentPage.indexOf("cn_") < 0 && page.indexOf("cn_") >= 0){
+			page = page.substr(3)
+		}
+		else if(currentPage.indexOf("cn_") >= 0 && page.indexOf("cn_") < 0){
+			page = "cn_" + page;
+		}
+	}
+	setCookie("currentPage", page);
     $("#main").load(baseURL + page);
 }
 
@@ -50,3 +55,13 @@ function search()
 	    }
     });																			
 }
+
+$("#switch-language").change(function(){
+    var currentPage = getCookie("currentPage");
+    var pos = currentPage.indexOf("cn_");
+    if(0 == $(this).val() && pos >= 0){
+    	loadPage(currentPage.substr(pos+ 3),true);
+    }else if(1 == $(this).val() && pos < 0){
+    	loadPage("cn_" + currentPage,true);
+    }
+});
