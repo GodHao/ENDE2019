@@ -140,15 +140,26 @@ header .header-top{
     padding: 0 3.5%;
     border-bottom: 5px solid transparent;
 }
+@media only screen and (max-width: 1500px) {
+.header-nav nav ul li {
+	padding: 0 2.5%;
+}
+}
+@media only screen and (max-width: 900px) {
+.header-nav nav ul li {
+	font-size: 15px;
+	padding: 0 2%;
+}
 
-.header-nav ul li:not(.active):hover {
+}
+.header-nav nav ul li.active{
+	border-bottom: 5px solid #DF5203 !important;
+}
+
+.header-nav ul li:hover {
 	background: #0A78C8;
 	border-bottom: 5px solid #393939;
 	/*#DF5203*/
-}
-.header-nav ul li.active{
-	background: transparent;
-	border-bottom: 5px solid #DF5203;
 }
 
 @media only screen and (min-width: 1200px) {
