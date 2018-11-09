@@ -205,11 +205,24 @@ header .header-nav nav ul li a {
 }
 
 .site-assistant {
-    width: 77px;
+    width: 200px;
     position: fixed;
-    top: 0;
+    top: 30px;
     right: 0;
-    z-index: 1000
+    z-index: 1000;
+}
+.site-assistant .language{
+	display: inline;
+	float: left;
+	width: 50%;
+	border-radius: 4px;
+}
+.site-assistant select, option{
+	background: transparent;
+}
+.site-assistant option{
+	color: #333;
+	font-weight: 500;
 }
 
 .site-assistant .assistant-switch {
@@ -217,9 +230,10 @@ header .header-nav nav ul li a {
     top: 0;
     left: 0;
     display: block;
-    width: 77px;
+    width: 50%;
     height: 78px;
-    z-index: 1
+    z-index: 1;
+    float: left;
 }
 
 .site-assistant ul {
