@@ -9,6 +9,10 @@ var baseURL = "http://127.0.0.1:8020/ENDE2019/"
 var searchURL = "http://www.ende2019.com:9200/ende2019/ende/_search";
 //加载网页内容
 var loadPage = function(page, lang){
+	if(!page){
+		page = "index.html";
+		setCookie("currentPage", page);
+	}
 	if(!lang){
 		var currentPage = getCookie("currentPage");
 		if(currentPage.indexOf("cn_") < 0 && page.indexOf("cn_") >= 0){

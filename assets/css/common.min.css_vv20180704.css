@@ -206,7 +206,7 @@ header .header-nav nav ul li a {
 
 .site-assistant {
     width: 200px;
-    position: fixed;
+    position: absolute;
     top: 30px;
     right: 0;
     z-index: 1000;
