@@ -10,8 +10,7 @@ var searchURL = "http://www.ende2019.com:9200/ende2019/ende/_search";
 //加载网页内容
 var loadPage = function(page, lang){
 	if(!page){
-		page = "index.html";
-		setCookie("currentPage", page);
+		page = "main.html";
 	}
 	if(!lang){
 		var currentPage = getCookie("currentPage");
