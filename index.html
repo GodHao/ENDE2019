@@ -13,6 +13,17 @@
                 location.href = location.pathname+"m/";
             }
         };
+        /*var redirect=function(page){
+    		window.location.href=baseURL+page;
+    	};*/
+    	var redirect = function(sobj){
+	    	var docurl =sobj.options[sobj.selectedIndex].value;
+	        if (docurl != "") {
+	           open(docurl,'_blank');
+	           sobj.selectedIndex=0;
+	           sobj.blur();
+	        }
+       	}
         autoRedirect();
         window.onresize=function(){
             autoRedirect();
@@ -25,7 +36,7 @@
 </head>
 <body>
     <header>
-      <div class="container">
+      <div class="container" id="header">
     	<div class="header-top">
     	  	<div class="logo">
 			    <a href="javascript:void(0);">
@@ -44,6 +55,9 @@
 			  			</button>
 			  		</span>
 			  	</div>
+		    </div>
+		    <div class="">
+		    	
 		    </div>
     	</div>
 		
@@ -82,7 +96,26 @@
 	    			<option value="1">中文</option>
 	    		</select>
 	      	</div>
-	        <a href="javascript:;" class="assistant-switch"><img src="./assets/images/icon-assistant-open.jpg" data-icon-open="./assets/images/icon-assistant-open.jpg" data-icon-close="./assets/images/icon-assistant-close.jpg" class="img-responsive"></a>
+	      	<div class="Register-Login-container" id="Register-Login" >
+	      		<div class="Register" id="Register">
+	      			<a href="register.html">Register</a>
+	      		</div>
+	      		<div class="Login" id="Login">
+	      			<a href="login.html">Login</a>
+	      		</div>
+	      		<div class="userButton" id="userButton" style="display: none;">
+		      		<select onchange="redirect(this)">
+		      			<!--<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">投递稿件</a></option>
+		      			<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">查看稿件</a></option>-->
+		      			<option selected>Paper</option>
+		      			<option value="contribute.html">Submit</option>
+		      			<option value="showPapers.html">View</option>
+		    		</select>
+	      		</div>
+				<button class="quitButton" id="quitButton" style="display: none;background-color: #0A78C8">exit</button>
+	      	</div>
+	      	
+	        <!--<a href="javascript:;" class="assistant-switch"><img src="./assets/images/icon-assistant-open.jpg" data-icon-open="./assets/images/icon-assistant-open.jpg" data-icon-close="./assets/images/icon-assistant-close.jpg" class="img-responsive">123</a>
 	        <ul>
 	            <li>
 	                <a href="javascript:;" class="assistant-wechat">
@@ -90,13 +123,7 @@
 	                    <span>关注微信</span>
 	                </a>
 	            </li>
-	            <!--<li>
-	                <a rel="nofollow" href="http://weibo.com/hengjieweiyu" target="_blank" onclick="trackEvent('nav', 'side_weibo')">
-	                    <img src="./assets/images/assistant-icon-weibo.png" class="center-block img-responsive" />
-	                    <span>关注微博</span>
-	                </a>
-	            </li>-->
-	        </ul>
+	        </ul>-->
 	    </div>
 	    <!--assistant end-->
 	</header>
@@ -107,7 +134,7 @@
 				<p class="short-name">(ENDE2019)</p>
 				<div class="info-title">
 					<h3>Longemont Hotels in Chengdu, Sichuan, China</h3>
-					<h4>September 11<sup>th</sup> - September 14<sup>th</sup></h4>
+					<h4>September 11-14, 2019</h4>
 				</div>
 			</div>
 			<img src="./assets/images/banner-m.jpg" alt="chengdu" class="img-responsive" width="100%;">
@@ -118,7 +145,7 @@
 		    	This year's technical sessions, student posters competition, industry exhibition, tour, and other special events will be coordinated by University of Electronic Science and Technology of China, Sichuan University and Southwest Jiaotong University. The subjects of the 24th workshop will focus on the theoretical and applied research on Electromagnetic Non-destructive Evaluation methods and provide a wonderful opportunity to exchange ideas and update on the latest developments.
 		    </p>
 		    <p>
-		        We welcome you to join us for an exciting program in “the Land of Abunddance” in 2019!
+		        We welcome you to join us for an exciting program in “the Land of Abundance” in 2019!
 		    </p>
 		</div>
 		<div class="recommend clearfix" style="text-align: justify; color:black;">
@@ -127,7 +154,7 @@
 				<p>Guiyun Tian, University of Electronic Science and Technology of China/ Newcastle University</p>
 				<strong>Co-Chairs:</strong>
 				<p>Zhenmao Chen, Xi’an Jiaotong University, China</p>
-				<p>Junming Lin, Eddysun Electronic Corp., China</p>
+				<p>Junming Lin, Eddysun (Xiamen) Electronic Co.Ltd.，China</p>
 				<p>Tianpeng Qiang, Special Equipment Safety Supervision Inspection Institute of Jiangsu Province, China</p>
 				<p>Xiaorong Gao, Southwest Jiaotong University, China</p>
 			</p>
@@ -178,13 +205,14 @@
     <script src="./statics/jquery/sticky/1.0.4/jquery.sticky.min.js"></script>
     <script src="./assets/js/common.min.js_vv20180806.js"></script>
     <script src="./assets/js/index.min.js"></script>
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/view.js"></script>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/view.js"></script>
     <script>
-    	var currentPage = getCookie("currentPage");
-    	if(currentPage != 'index.html'){
-    		loadPage(currentPage);
-    	}
+        islogin();
+        var currentPage = getCookie("currentPage");
+        if(currentPage != 'index.html'){
+            loadPage(currentPage);
+        }
     </script>
 </body>
 </html>

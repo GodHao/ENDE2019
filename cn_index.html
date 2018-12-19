@@ -1,104 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ENDE2019</title>
-    <meta name="keywords" content="The 24th Electromagnetic Nondestructive Evaluation Workshop (ENDE2019)">
-    <meta name="description" content="The 24th Electromagnetic Nondestructive Evaluation Workshop (ENDE2019)">
-    <meta charset='utf-8'>
-    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
-    <script type="text/javascript">
+	<title>ENDE2019</title>
+	<meta name="keywords" content="The 24th Electromagnetic Nondestructive Evaluation Workshop (ENDE2019)">
+	<meta name="description" content="The 24th Electromagnetic Nondestructive Evaluation Workshop (ENDE2019)">
+	<meta charset='utf-8'>
+	<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+	<script type="text/javascript">
         var autoRedirect=function(){
             var w=window.screen.width;
             if (parseInt(w) < 960 && location.href.indexOf("/m/") < 0) {
-                location.href = location.pathname+"m";
+                location.href = location.pathname+"m/";
             }
         };
+        /*var redirect=function(page){
+    		window.location.href=baseURL+page;
+    	};*/
+        var redirect = function(sobj){
+            var docurl =sobj.options[sobj.selectedIndex].value;
+            if (docurl != "") {
+                open(docurl,'_blank');
+                sobj.selectedIndex=0;
+                sobj.blur();
+            }
+        }
         autoRedirect();
         window.onresize=function(){
             autoRedirect();
         };
-    </script>
-    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png" />
-    <link href="./statics/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./assets/css/common.min.css_vv20180704.css" />
-    <link type="text/css" rel="stylesheet" href="./assets/css/index.min.css" />
+	</script>
+	<link rel="icon" type="image/x-icon" href="./assets/images/logo.png" />
+	<link href="./statics/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="./assets/css/common.min.css_vv20180704.css" />
+	<link type="text/css" rel="stylesheet" href="./assets/css/index.min.css" />
 </head>
 <body>
-    <header>
-      <div class="container">
-    	<div class="header-top">
-    	  <div class="logo">
-		    <a href="javascript:void(0);" onclick="loadPage('cn_main.html');">
-		    	<div class="logo-text">
-		    		<span class="big">Welcome</span>
-		    		<span class="small"><i> to ENDE 2019!</i></span>
-		    	</div>
-		    </a>
-		  </div>
-		  <div class="search">
-		  	<div class="input-group">
-		  		<input class="form-search form-control" placeholder="Search" type="search">
-		  		<span class="input-group-btn">
-		  			<button onclick="search();" type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name="">
-		  				<span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
-		  			</button>
-		  		</span>
-		  	</div>
-		    </div>
-		  		    <!--assistant begin-->
-		    <div class="site-assistant">
-		    	<div class="language">
-		    		<select>
-		    			<option>中文</option>
-		    			<option>English</option>
-		    		</select>
-		    	</div> 
-		        <a href="javascript:;" class="assistant-switch"><img src="./assets/images/icon-assistant-open.jpg" data-icon-open="./assets/images/icon-assistant-open.jpg" data-icon-close="./assets/images/icon-assistant-close.jpg" class="img-responsive"></a>
-		        <ul>
-		            <li>
-		                <a href="javascript:;" class="assistant-wechat">
-		                    <img src="./assets/images/qrcode-wechat-top.png" class="center-block img-responsive" />
-		                    <span>关注微信</span>
-		                </a>
-		            </li>
-		            <!--<li>
-		                <a rel="nofollow" href="http://weibo.com/hengjieweiyu" target="_blank" onclick="trackEvent('nav', 'side_weibo')">
-		                    <img src="./assets/images/assistant-icon-weibo.png" class="center-block img-responsive" />
-		                    <span>关注微博</span>
-		                </a>
-		            </li>-->
-		        </ul>
-		    </div>
-		    <!--assistant end-->
-    	</div>
-		
-		<div class="header-nav">
-		    <!--main nav begin-->
-		    <nav>
-		        <ul>
-		            <li class="active">
-		                    <a href="javascript:void(0);" onclick="loadPage('cn_main.html');">主页</a>
-		            </li>
-		            <li class="">
-		                    <a href="javascript:void(0);" onclick="loadPage('cn_general.html');" class="submenu" data-control="product">大会概况</a>
-		            </li>
-		            <li class="">
-		                    <a href="javascript:void(0);" onclick="loadPage('cn_registration.html');" class="submenu" data-control="support">注册</a>
-		            </li>
-		            <li class="">
-		                    <a href="javascript:void(0);" onclick="loadPage('cn_authors.html');">作者信息</a>
-		            </li>
-		            <li class="">
-		                    <a href="javascript:void(0);" onclick="loadPage('cn_program.html');">日程安排</a>
-		            </li>
-		            <li class="">
-		                    <a href="javascript:void(0);" onclick="loadPage('cn_contact.html');">联系我们</a>
-		            </li>
-		        </ul>
-		    </nav>
-		    <!--main nav end-->
+	<header>
+		<div class="container" id="header">
+			<div class="header-top">
+				<div class="logo">
+					<a href="javascript:void(0);" onclick="loadPage('cn_main.html');">
+						<div class="logo-text">
+							<span class="big">Welcome</span>
+							<span class="small"><i>to ENDE 2019!</i></span>
+						</div>
+					</a>
+				</div>
+				<div class="search">
+					<div class="input-group">
+						<input class="form-search form-control" placeholder="搜索" type="search">
+						<span class="input-group-btn">
+							<button onclick="search();" type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name="">
+								<span class="sr-only">搜索</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="header-nav">
+				<!--main nav begin-->
+				<nav>
+					<ul>
+						<li class="active">
+							<a href="javascript:void(0);" onclick="loadPage('cn_main.html');">主页</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0);" onclick="loadPage('cn_general.html');" class="submenu" data-control="product">大会概况</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0);" onclick="loadPage('cn_registration.html');" class="submenu" data-control="support">注册</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0);" onclick="loadPage('cn_authors.html');">作者信息</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0);" onclick="loadPage('cn_program.html');">日程安排</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0);" onclick="loadPage('cn_contact.html');">联系我们</a>
+						</li>
+					</ul>
+				</nav>
+				<!--main nav end-->
+			</div>
 		</div>
-	  </div>
+		<!--assistant begin-->
+		<div class="site-assistant">
+			<div class="language">
+				<select id="switch-language">
+					<option value="1" selected="selected">中文</option>
+					<option value="0">English</option>
+				</select>
+			</div>
+			<div class="Register-Login-container" id="Register-Login" >
+				<div class="Register" id="Register">
+					<a href="register.html">注册</a>
+				</div>
+				<div class="Login" id="Login">
+					<a href="login.html">登录</a>
+				</div>
+				<div class="userButton" id="userButton" style="display: none;">
+					<select onchange="redirect(this)">
+						<!--<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">投递稿件</a></option>
+                        <option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">查看稿件</a></option>-->
+						<option selected>论文</option>
+						<option value="contribute.html">提交</option>
+						<option value="showPapers.html">查看</option>
+					</select>
+				</div>
+				<button class="quitButton" id="quitButton" style="display: none;background-color: #0A78C8">退出</button>
+			</div>
+		</div>
+		<!--assistant end-->
 	</header>
 	<div id="main">
 		<div class="news clearfix" style="text-align: justify;color:black;">
@@ -107,84 +120,85 @@
 				<p class="short-name">(ENDE2019)</p>
 				<div class="info-title">
 					<h3>四川成都龙之梦酒店</h3>
-					<h4>9月11日 - 9月14日</h4>
+					<h4>9月11日 - 14日</h4>
 				</div>
 			</div>
 			<img src="./assets/images/banner-m.jpg" alt="chengdu" class="img-responsive" width="100%;">
 			<p>
-		    	第24届国际电磁无损评估研讨会（ENDE2019）将于2019年9月11日至14日在中国四川成都的龙之梦酒店举行。
-		   </p>
-		    <p>
-		    	今年的技术专题、学生海报比赛、行业展览、参观游览及其他特别活动将由电子科技大学、四川大学和西南交通大学共同协调组织。第24届研讨会的主题将聚焦在电磁无损评估方法的理论和应用研究，并提供一个进行思想、学术与技术交流的平台和获取最新研究成果的绝佳机会。
-		    </p>
-		    <p>
-		       	 我们诚挚地欢迎您加入我们，参加这个2019年在“天府之国”举行的精彩活动！
-		    </p>
+				第24届国际电磁无损评估研讨会（ENDE2019）将于2019年9月11日-14日在中国四川成都的龙之梦酒店举行。
+			</p>
+			<p>
+				今年的研讨会将由电子科技大学承办、四川大学和西南交通大学共同协办，研讨会包括技术专题、学生海报比赛、行业展览、参观游览及其他特别活动。第24届研讨会的主题将聚焦电磁无损评估的理论和应用研究，为参会嘉宾提供一个进行思想、学术与技术交流的平台和获取最新研究成果的绝佳机会。
+			</p>
+			<p>
+				我们诚挚地欢迎您加入我们，参加2019年在“天府之国”举行的精彩活动！
+			</p>
 		</div>
 		<div class="recommend clearfix" style="text-align: justify; color:black;">
 			<p>
 				<strong>大会主席：</strong>
-				<p>田贵云, 电子科技大学 /纽卡斯尔大学</p>
-				<strong>联合主席：</strong>
-				<p>陈振茂，西安交通大学</p>
-				<p>林俊明，爱德森院士专家工作站</p>
-				<p>强天鹏，江苏省特种设备安全监督检验研究院</p>
-				<p>高晓蓉，西南交通大学</p>
+			<p>田贵云, 电子科技大学 /纽卡斯尔大学</p>
+			<strong>联合主席：</strong>
+			<p>陈振茂，西安交通大学</p>
+			<p>林俊明，爱德森院士专家工作站</p>
+			<p>强天鹏，江苏省特种设备安全监督检验研究院</p>
+			<p>高晓蓉，西南交通大学</p>
 			</p>
 			<p>
-				<p><strong>论文征集：</strong></p>
-				<p>参会作者提交不超过两页的与研讨会主题相关的简短论文。提交的论文需是未在其它地方提交或发布的原创作品。论文评审委员会将对提交的简短论文进行评审。被接收的论文将纳入研讨会会议论文集。鼓励已接收的短文的作者提交完整的论文（长4-6页），完整论文将提交同行评审，通过评审的完整论文将纳入ISTP索引, 由IOS Press系列丛书“应用电磁与力学研究”出版。优秀论文将被推荐给SCI索引的期刊，如《Sensors》。</p>
+			<p><strong>论文征集：</strong></p>
+			<p>参会作者提交不超过两页的与研讨会主题相关的简短论文。提交的论文需是未在其它地方提交或发布的原创作品。论文评审委员会将对提交的简短论文进行评审。被接收的论文将纳入研讨会会议论文集。鼓励已接收的短文的作者提交完整的论文（长4-6页），完整论文将提交同行评审，通过评审的完整论文将纳入ISTP索引, 由IOS Press系列丛书“应用电磁与力学研究”出版。优秀论文将被推荐给SCI索引的期刊，如《Sensors》。</p>
 			</p>
 			<p>
-				<p><strong>稿件主题涉及但不仅限于以下：</strong></p> 
-			    <p>先进的ENDE传感器和成像Advanced ENDE sensors and imaging </p> 	
-				<p>ENDE的分析和数值模拟 Analytical and numerical modeling of ENDE </p>
-				<p>ENDT＆E集成/融合系统 Integrated ENDT&E systems </p>
-				<p>信号处理和反演问题Signal processing and Inverse problems</p>
-				<p>ENDE量化无损评估和人工智能 QNDE and AI for ENDE</p>
-				<p>材料表征 Material characterization </p>
-				<p>机械结构的监测和诊断 Monitoring and diagnosis of mechanical structures</p>
-				<p>ENDE新发展 New developments in ENDE </p>
-				<p>ENDE工业创新应用 Innovative industrial applications of ENDE</p>
+			<p><strong>稿件主题涉及但不仅限于以下：</strong></p>
+			<p>先进的ENDE传感器</p>
+			<p>ENDE的分析和数值模拟</p>
+			<p>ENDT＆E集成/融合系统</p>
+			<p>反演问题、成像和信号处理</p>
+			<p>ENDE量化无损评估和人工智能</p>
+			<p>材料表征</p>
+			<p>机械结构的监测和诊断</p>
+			<p>ENDE新发展</p>
+			<p>ENDE工业创新应用</p>
 			</p>
 		</div>
 	</div>
 	<footer>
 		<div class="container" style="color:black;">
-		    <div class="clearfix footer-nav">
-		        <div class="col-md-8">
-		            <p><strong>Conference Venue: </strong>The Longemont Hotels Chengdu</p>
-		            <p><strong>Address: </strong>No. 8 Jialingjiang Rd., Chenghua Dist., Chengdu, Sichuan, P.R. China</p>
-		            <p><strong>Date: </strong>September 11-14，2019</p>
-		        </div>
-		        <div id="test" class="col-md-4">
-		            <div class="footer-logo"><img src="./assets/images/logo.png" class="img-responsive"></div>
-		        </div>
-		    </div>
-		    <div class="clearfix copyright" style="text-align: center;">
-		        <div class="col-md-12">
-		           Copyright©The 24th Electromagnetic Nondestructive Evaluation Workshop (ENDE2019)
-		        </div>
-		        <div class="col-md-12">
-		        	备案号：<a href="http://www.miitbeian.gov.cn" target="_blank">30153543981198565</a>
-		        </div>
-		    </div>
+			<div class="clearfix footer-nav">
+				<div class="col-md-8">
+					<p><strong>会议地点: </strong>四川成都龙之梦酒店</p>
+					<p><strong>地址: </strong>四川省成都市成华区嘉陵江路8号</p>
+					<p><strong>日期: </strong>2019年9月11日-14日</p>
+				</div>
+				<div id="test" class="col-md-4">
+					<div class="footer-logo"><img src="./assets/images/logo.png" class="img-responsive"></div>
+				</div>
+			</div>
+			<div class="clearfix copyright" style="text-align: center;">
+				<div class="col-md-12">
+					Copyright©第24届国际电磁无损评估研讨会
+				</div>
+				<div class="col-md-12">
+					备案号：<a href="http://www.miitbeian.gov.cn" target="_blank">30153543981198565</a>
+				</div>
+			</div>
 		</div>
-    </footer>
-    <div class="go-top hidden"><a href="javascript:;"><img src="./assets/images/btn-go-top.jpg"></a></div>
-    <script src="./statics/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./statics/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="./statics/Swiper/3.4.0/js/swiper.min.js"></script>
-    <script src="./statics/jquery/sticky/1.0.4/jquery.sticky.min.js"></script>
-    <script src="./assets/js/common.min.js_vv20180806.js"></script>
-    <script src="./assets/js/index.min.js"></script>
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/view.js"></script>
-    <script>
-    	var currentPage = getCookie("currentPage");
-    	if(currentPage != 'cn_index.html'){
-    		loadPage(currentPage);
-    	}
-    </script>
+	</footer>
+	<div class="go-top hidden"><a href="javascript:;"><img src="./assets/images/btn-go-top.jpg"></a></div>
+	<script src="./statics/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./statics/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./statics/Swiper/3.4.0/js/swiper.min.js"></script>
+	<script src="./statics/jquery/sticky/1.0.4/jquery.sticky.min.js"></script>
+	<script src="./assets/js/common.min.js_vv20180806.js"></script>
+	<script src="./assets/js/index.min.js"></script>
+	<script src="./assets/js/common.js"></script>
+	<script src="./assets/js/view.js"></script>
+	<script>
+        islogin();
+        var currentPage = getCookie("currentPage");
+        if(currentPage != 'cn_index.html'){
+            loadPage(currentPage);
+        }
+	</script>
 </body>
 </html>

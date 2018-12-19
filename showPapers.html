@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Bootstrap -->
+    <link href="statics/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="statics/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!-- 新增Book静态模态框 -->
+	  <!-- Modal -->
+		<div class="modal fade" id="paper_update_model" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">稿件信息编辑</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form class="form-horizontal" id="Paper_form">
+				  <div class="form-group">
+				    <label  class="col-sm-2 control-label">name</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" name="bname" id="Name_update" placeholder="name">
+				      <span class="help-block"></span>
+				    </div>
+				  </div>
+				  <!--<div class="form-group">
+				    <label  class="col-sm-2 control-label">email</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control-static" name="email" id="Email_update" placeholder="email">
+				      <span class="help-block"></span>
+				    </div>
+				  </div>-->
+				  <div class="form-group">
+				    <label  class="col-sm-2 control-label">email</label>
+				    <div class="col-sm-10">
+				      <!--<input type="text" class="form-control-static" name="email" id="Email_update" placeholder="email">-->
+				      <p class="form-control-static" id="Email_update"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label  class="col-sm-2 control-label">title</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" name="title" id="Title_update" placeholder="title">
+				      <span class="help-block"></span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+						<label  class="col-sm-2 control-label">type</label>
+						<div class="col-sm-5">
+							<select class="form-control" name="type" id="Type_update">				  	
+								<option value="1">oral</option>
+								<option value="2">report</option>				
+					  		</select>
+						</div>
+				</div>			 
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary" id="paper_update_modal_save">保存</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+    <!-- 搭建显示页面 -->
+    <div class="containter" >
+    	<!-- 标题 -->
+    	<div class="row">
+    		<div class="col-md-4 col-md-offset-2">
+    			<h1>Papers</h1>
+    		</div>
+    	</div>
+    	<!-- 显示表格信息 -->
+    	<div class="row">
+    		<div class="col-md-8 col-md-offset-2">
+    			<table class="table table-hover" id="paperTable">
+    				<thead>
+    					<tr>
+	    					<th>name</th>
+	    					<th>email</th>
+	    					<th>title</th>
+	    					<th>type</th>
+	    					<th>nationality</th>
+	    					<th>affiliation</th>
+	    					<th>操作</th>
+    					</tr>
+    				</thead>
+    				<tbody>    </tbody>
+    			</table>
+    		</div>
+    	</div>
+    	<!-- 显示分页信息 -->
+    	<div class="row">
+    		<div class="col-md-6 col-md-offset-2" id="page_info">    </div>
+    		<div class="col-md-3 col-md-offset-7" id="page_nav">     </div>			
+    	</div>
+    </div>
+    <script src="./assets/js/common.js"></script>
+    <script>
+    	$(function(){
+    		to_page(1);
+    	})
+    	function to_page(pn){
+    		$.ajax({
+    			url:baseURL+"queryPapers",
+    			data:"page="+pn,
+    			type:"GET",
+    			success:function(result){
+    				//1、解析显示Book数据
+    				paper_table(result);
+    				//2、解析显示分页信息
+    				build_page_info(result);
+    				//3、显示分页条
+    				build_page_nav(result);
+    			},
+    			error:function(){
+		    		alert("ajax fail...");
+		    		
+		    	}
+    		});
+    	}
+    	function paper_table(result)
+    	{
+    		$("#paperTable tbody").empty();
+    		var papers = result.data.PageInfo.list;
+    		$.each(papers,function(index,item){
+    			var name = $("<td></td>").append(item.name);
+    			var email = $("<td></td>").append(item.email);
+    			var title = $("<td></td>").append(item.title);
+    			var type = $("<td></td>").append(item.type);
+    			var nationality = $("<td></td>").append(item.nationality);
+    			var affiliation = $("<td></td>").append(item.affiliation);
+    			var openBtn = $("<button></button>")
+    						.addClass("btn btn-primary btn-sm open_btn")
+    						.append($("<span></span>").addClass("glyphicon glyphicon-open-file"))
+    						.append("打开");
+    			openBtn.attr("filePath",item.paperPath);
+    			var editBtn = $("<button></button>")
+    						.addClass("btn btn-primary btn-sm edit_btn")
+    						.append($("<span></span>").addClass("glyphicon glyphicon-pencil"))
+    						.append("编辑");
+    			editBtn.attr("paperId",item.id);
+    			var deleteBtn = $("<button></button>")
+							.addClass("btn btn-danger btn-sm delete_btn")
+							.append($("<span></span>").addClass("glyphicon glyphicon-trash"))
+							.append("删除");
+				deleteBtn.attr("paperId",item.id);
+    			var btnTd = $("<td></td>").append(openBtn).append(" ").append(editBtn).append(" ").append(deleteBtn);
+    			$("<tr></tr>").append(name)
+    						.append(email)
+    						.append(title)
+    						.append(type)
+    						.append(nationality)
+    						.append(affiliation)
+    						.append(btnTd)
+    						.appendTo("#paperTable tbody");
+    		});
+    	}
+    	//显示分页信息
+    	function build_page_info(result)
+    	{
+    		$("#page_info").empty();
+    		$("#page_info").append("当前第"+result.data.PageInfo.pageNum+"页,总"+result.data.PageInfo.pages+"页,总共有"+result.data.PageInfo.total+"条记录");
+    		
+    	}
+    	//显示分页条
+    	function build_page_nav(result)
+    	{
+    		$("#page_nav").empty();
+    		var ul = $("<ul></ul>").addClass("pagination");
+    		var firstPage = $("<li></li>").append($("<a></a>").append("首页"));
+    		var prePage = $("<li></li>").append($("<a></a>").append("&laquo;")); 
+    		if(result.data.PageInfo.hasPreviousPage == false)
+    		{
+    			firstPage.addClass("disabled");
+    			prePage.addClass("disabled");
+    		}else{
+    			firstPage.click(function()
+		    	{
+	    			to_page(1);
+		    	});
+	    		prePage.click(function()
+	    	    {
+	    	    	to_page(result.data.PageInfo.pageNum-1);
+	    	    });
+    		}
+    		var nextPage = $("<li></li>").append($("<a></a>").append("&raquo;")); 
+    		var lastPage = $("<li></li>").append($("<a></a>").append("尾页"));
+    		if(result.data.PageInfo.hasNextPage == false)
+    		{
+    			nextPage.addClass("disabled");
+    			lastPage.addClass("disabled");
+    		}else{
+    			nextPage.click(function()
+	    	    {
+	    	    	to_page(result.data.PageInfo.pageNum+1);
+	    	    });
+	    		lastPage.click(function()
+	    	    {
+	    	    	to_page(result.data.PageInfo.pages);
+	    	    });
+    		}
+    		
+    		ul.append(firstPage).append(prePage);
+    		$.each(result.data.PageInfo.navigatepageNums,function(index,item){
+    			var num = $("<li></li>").append($("<a></a>").append(item));
+    			if(result.data.PageInfo.pageNum==item)
+    			{
+    				num.addClass("active");
+    			}
+    			num.click(function(){
+    				to_page(item);
+    			});
+    			ul.append(num);
+    		});
+    		
+    		ul.append(nextPage).append(lastPage);
+    		var nav = $("<nav></nav>").append(ul);
+    		$("#page_nav").append(nav);
+    	}
+    	
+    	//编辑按钮弹出模态框
+    	$(document).on("click",".edit_btn",function(){
+    		getPaper($(this).attr("paperId"));
+    		$("#paper_update_modal_save").attr("paperId",$(this).attr("paperId"));
+    		//弹出模态框
+    		$("#paper_update_model").modal({
+    			backdrop:"static"
+    		});
+    	});
+		//模态框中打开文件按钮
+		$(document).on("click",".open_btn",function(){
+			var paperPath = encodeURI($(this).attr("filePath"));
+			window.open("pdfShow.html?paperPath="+paperPath);
+		});
+				
+    	$("#paper_update_modal_save").click(function(){
+		//模态框中的保存按钮
+    		//先对表单内容进行校验
+    		if(!validate_updatePaperForm()){
+    			//校验成功后，才进行ajax请求
+	    		$.ajax({
+	    			url:baseURL+"updatePaper/"+$(this).attr("paperId"),
+	    			type:"PUT",
+	    			data:$("#paper_update_model form").serialize(),
+	    			success:function(result){
+	    				//关闭模态框
+	    				$("#paper_update_model").modal('hide');
+	    				//来到最后一页，显示刚刚保存的数据
+	    				to_page(999);
+	    			},
+	    			error:function(){
+	    				alert("ajax fail...")
+	    			}
+	    		});
+    		}
+    		else{
+    			alert("表单校验错误");
+    		}
+    		
+    	});
+    	
+    	//删除按钮
+    	$(document).on("click",".delete_btn",function(){
+    		var paperId = $(this).attr("paperId");
+    		$.ajax({
+    			type:"get",
+    			url:baseURL+"deletePaperById",
+    			data:"paperId="+paperId,
+    			async:true,
+    			success:function(result){
+    				to_page(999);
+    			},
+    			error:function(){
+					alert("ajax fail...");
+				}
+    		});
+    	});
+    	
+    	function getPaper(id){
+			$.ajax({
+				type:"get",
+				url:baseURL+"queryPaperById",
+				data:"paperId="+id,
+				success:function(result){
+					var paper = result.data.Paper;
+					$("#Name_update").val(paper.name);
+					$("#Email_update").text(paper.email);
+					$("#Title_update").val(paper.title);
+					$("#Type_update").val([paper.type=="oral"?"1":"2"]);
+				},
+				error:function(){
+					alert("ajax fail...");
+				}
+			});
+		}
+    	
+    	//检验新增Book表单
+    	function validate_updatePaperForm(){
+    		var errorFlag = false;
+	    		
+				var name = $("#Name_update").val();
+    			if(name == "")
+    			{
+    				show_validate_info("#Name_update","error","姓名不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			show_validate_info("#Name_update","success","");
+	    		}
+    			
+    			/*var UserEmail = $("#Email_update").val();
+    			var regEmail = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    			if(UserEmail == "")
+    			{
+    				show_validate_info("#Email_update","error","邮箱不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			if(!regEmail.test(UserEmail))
+	    			{
+	    				show_validate_info("#Email_update","error","邮箱格式错误");
+	    				errorFlag = true;
+	    			}
+	    			else
+	    			{
+	    				show_validate_info("#Email_update","success","");
+	    			}
+	    		}*/
+    			
+    			var title = $("#Title_update").val();
+    			if(title == "")
+    			{
+    				show_validate_info("#Title_update","error","稿件标题不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			show_validate_info("#Title_update","success","");
+	    		}
+    			    			
+    			return errorFlag;
+    	}    	   	
+    	//校验信息显示
+    	function show_validate_info(element,status,msg){
+    		$(element).parent().removeClass("has-success has-error");
+    		if(status == "success"){
+    			$(element).parent().addClass("has-success");
+        		$(element).next("span").text(msg);
+    		}
+    		else{
+    			$(element).parent().addClass("has-error");
+        		$(element).next("span").text(msg);
+    		}
+    		
+    	}
+    </script>
+	</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<!-- jquery 在前面-->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Bootstrap -->
+    <link href="statics/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="statics/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	</head>
+	<body background="assets/images/803120d8ff16b0f897a8e705fc44d1fb_1_180211222526_1.jpg" style="background-size: cover;">
+		<div class=" container" style="background-color:initial;">
+			<form class="form-horizontal">
+			  <div class="form-border">
+				  <div class="form-group">
+				    <label class="col-sm-4 control-label">姓名</label>
+				    <div class="col-sm-8">
+				    	<input type="text" class="form-control" placeholder="name" id="name" name="name" >
+				    	<span class="help-block"></span>
+				    </div>
+				  </div>	
+				  <div class="form-group">
+				    <label class="col-sm-4 control-label">邮箱</label>
+				    <div class="col-sm-8">
+				    	<input type="email" class="form-control"  placeholder="Email" id="email" name="email" >
+				    	<span class="help-block"></span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  	<label class="col-sm-4 control-label">国籍</label>
+				  	<div class="col-sm-5">
+					  	<select class="form-control" name="nationality" id="nationality">				  	
+							<option value="China">China</option>
+							<option value="England">England</option>
+							<option value="US">US</option>				
+					  	</select>
+				  	</div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-4 control-label">学校机构</label>
+				    <div class="col-sm-7">
+				    	<input type="text" class="form-control"  name="affiliation" id="affiliation">
+				    	<span class="help-block"></span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-4 control-label">稿件标题</label>
+				    <div class="col-sm-8">
+				    	<input type="text" class="form-control" placeholder="title" id="title" name="title" >
+				    	<span class="help-block"></span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  	<label class="col-sm-4 control-label">论文类型</label>
+				  	<div class="col-sm-5">
+					  	<select class="form-control" name="type" id="type">				  	
+							<option value="1">oral</option>
+							<option value="2">report</option>				
+					  	</select>
+				  	</div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-4 control-label">稿件上传</label>
+				    <div class="col-sm-8">
+				    	<input type="file"  placeholder="file" id="file" name="file" >
+				    	<span class="help-block"></span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  	<div class="col-sm-4"></div>
+				  	<div class="col-sm-2">
+				  		<button type="button" class="btn btn-default" id="PaperSubmit" style="background-color: #28a745; color: #fff;" >Submit</button>
+				  	</div>
+				  </div>
+			  </div>
+			</form>	
+	    </div>
+	   <script src="./assets/js/common.js"></script>
+	   <script type="text/javascript">
+	    	$("#PaperSubmit").click(function(){
+	    		if(!validate_form())  //若验证成功，则发送请求
+	    		{
+	    			var formData = new FormData();
+	    			formData.append("name",$("#name").val());
+	    			formData.append("email",$("#email").val());
+	    			formData.append("nationality",$("#nationality").val());
+	    			formData.append("affiliation",$("#affiliation").val());
+	    			formData.append("title",$("#title").val());
+	    			formData.append("type",$("#type").val());
+	    			formData.append("file",$("#file")[0].files[0]);	    			
+		    		$.ajax({
+		    			type:"POST",
+		    			url:baseURL+"contribute",
+		    			data:formData,
+		    			processData:false,
+		    			contentType:false,
+		    			success:function(result){
+		    			window.location.href = baseURL+"contribute.html";
+		    			},
+		    			error:function(){
+		    			    alert("ajax fail...");
+		    			   }
+		    		});
+	    		}
+	    		else
+	    		{
+	    			alert("表单格式错误");
+	    		}
+	    	});
+	    	
+	    	function validate_form(){
+	    		var errorFlag = false;
+	    		
+				var UserName = $("#name").val();
+    			if(UserName == "")
+    			{
+    				show_validate_info("#name","error","姓名不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			show_validate_info("#name","success","");
+	    		}
+    			
+    			var UserEmail = $("#email").val();
+    			var regEmail = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    			if(UserEmail == "")
+    			{
+    				show_validate_info("#email","error","邮箱不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			if(!regEmail.test(UserEmail))
+	    			{
+	    				show_validate_info("#email","error","邮箱格式错误");
+	    				errorFlag = true;
+	    			}
+	    			else
+	    			{
+	    				show_validate_info("#email","success","");
+	    			}
+	    		}
+    			
+    			var affiliation = $("#affiliation").val();
+    			if(affiliation == "")
+    			{
+    				show_validate_info("#affiliation","error","学校机构不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			show_validate_info("#affiliation","success","");
+	    		}
+    			
+    			var title = $("#title").val();
+    			if(title == "")
+    			{
+    				show_validate_info("#title","error","稿件标题不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			show_validate_info("#title","success","");
+	    		}
+    			
+    			if($("#file").val()=="")   //需要先判断是否空，再去定义那些变量，不然（如果文件为空，那么定义出来的都是null，这样会出错）
+    			{
+    				show_validate_info("#file","error","请上传稿件");
+    			}
+    			else
+    			{    				
+	    			var uploadFile = $("#file")[0].files[0];
+	    			var fileSize = uploadFile.size;   //文件大小,以M为单位
+	    			var fileName = uploadFile.name;
+	    			var sp = fileName.lastIndexOf(".");  //文件名中“.”的位置
+	    			var sufix = fileName.substring(sp+1).toUpperCase(); //文件名后缀大写												
+					if(fileSize>104857600)
+					{
+						show_validate_info("#file","error","稿件大小不能超过100M！请重新上传");
+						errorFlag = true;
+					}
+					else
+					{
+						if(sufix!="PDF")
+		    			{
+		    				show_validate_info("#file","error","稿件格式不正确,请重新选择PDF格式的文件");
+		    				$("#file").val()="";
+		    				errorFlag = true;
+		    			}
+		    			else
+		    			{
+		    				show_validate_info("#file","success","");
+		    			}
+					}
+				}
+
+    			
+    			return errorFlag;
+	    	}
+	    	function show_validate_info(element,status,msg){
+	    		$(element).parent().removeClass("has-success has-error");
+    			if(status == "success"){
+	    			$(element).parent().addClass("has-success");
+	        		$(element).next("span").text(msg);
+    			}
+    			else{
+	    			$(element).parent().addClass("has-error");
+	        		$(element).next("span").text(msg);
+    			}
+	    	}
+	    </script>
+	</body>
+<style>
+	.form-horizontal{
+		margin: 60px auto;
+		width: 320px;
+	}
+	.form-border{
+		border: 1px solid #d8dee2;
+		border-radius: 5px;
+		padding-top: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		background-color:#F8F8F8;
+	}
+</style>
+</html>

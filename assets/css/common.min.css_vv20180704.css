@@ -207,7 +207,7 @@ header .header-nav nav ul li a {
 .site-assistant {
     width: 200px;
     position: absolute;
-    top: 30px;
+    top: 40px;
     right: 0;
     z-index: 1000;
 }
@@ -225,7 +225,26 @@ header .header-nav nav ul li a {
 	font-weight: 500;
 }
 
-.site-assistant .assistant-switch {
+.site-assistant .Register-Login-container{
+	height: 100%;
+	margin-left:5px;
+	float: left;
+}
+
+.site-assistant .Register-Login-container .Register, .Login{
+	border: 1px solid #eee;
+	text-align: center;
+	padding: 4px;
+	border-radius:3px;
+	margin-top: 4px;
+}
+
+.site-assistant .userButton{
+	height: 100%;
+	margin-left:5px;
+	float: left;
+}
+/*.site-assistant .assistant-switch {
     position: relative;
     top: 0;
     left: 0;
@@ -325,7 +344,7 @@ header .header-nav nav ul li a {
 .site-assistant ul li .assistant-wechat-pop a img {
     float: left;
     display: block
-}
+}*/
 
 footer {
     background-color: #f6f6f6;
@@ -653,4 +672,10 @@ nav.for-pagination .pagination li.active a {
 .col-fix-padding .col-md-12,.col-fix-padding .col-md-3,.col-fix-padding .col-md-4,.col-fix-padding .col-md-5,.col-fix-padding .col-md-6,.col-fix-padding .col-md-7,.col-fix-padding .col-md-8,.col-fix-padding .col-md-9 {
     padding-left: 5px;
     padding-right: 5px
+}
+
+.special-font {
+	font-family: '宋体';
+	font-size: 30px;
+	font-weight: bold;
 }

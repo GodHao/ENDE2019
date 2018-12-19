@@ -10,6 +10,16 @@
 var baseURL = "http://localhost:8080/ENDE2019/";//不能用localhost来代替127.0.0.1
 var searchURL = "http://www.ende2019.com:9200/ende2019/ende/_search";
 
+//刷新页面
+setTimeout("fresh",50);
+function fresh()
+{
+    if(location.href.indexOf("?reload=true")<0)
+    {
+        location.href+="?reload=true";
+    }
+}
+
 //加载网页内容
 var loadPage = function(page, lang){
 	if(!page){
