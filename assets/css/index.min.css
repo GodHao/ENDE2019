@@ -3,7 +3,9 @@
     margin: 0 auto;
     padding-top: 30px;
 }
-
+.news .img-responsive{
+    padding-bottom: 20px
+}
 .news .mask {
     height: 20%;
 }

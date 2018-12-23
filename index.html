@@ -48,12 +48,12 @@
 		    </div>
 		    <div class="search">
 			  	<div class="input-group">
-			  		<input class="form-search form-control" placeholder="Search" type="search">
+			  		<!-- <input class="form-search form-control" placeholder="Search" type="search">
 			  		<span class="input-group-btn">
 			  			<button onclick="search();" type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name="">
 			  				<span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
 			  			</button>
-			  		</span>
+			  		</span> -->
 			  	</div>
 		    </div>
 		    <div class="">
@@ -69,13 +69,13 @@
 		                    <a href="javascript:void(0);" onclick="loadPage('main.html');">Home</a>
 		            </li>
 		            <li class="">
-		                    <a href="javascript:void(0);" onclick="loadPage('general.html');" class="submenu" data-control="product">General Information</a>
+		                    <a href="javascript:void(0);" onclick="loadPage('general.html');" class="submenu" data-control="product">General</a>
 		            </li>
 		            <li class="">
 		                    <a href="javascript:void(0);" onclick="loadPage('registration.html');" class="submenu" data-control="support">Registration</a>
 		            </li>
 		            <li class="">
-		                    <a href="javascript:void(0);" onclick="loadPage('authors.html');">Authors Information</a>
+		                    <a href="javascript:void(0);" onclick="loadPage('authors.html');">Authors</a>
 		            </li>
 		            <li class="">
 		                    <a href="javascript:void(0);" onclick="loadPage('program.html');">Program</a>
@@ -90,13 +90,25 @@
 		</div>
 	    <!--assistant begin-->
 	    <div class="site-assistant">
-	        <div class="language">
+	        <!-- <div class="language">
 	    		<select id="switch-language">
 	    			<option selected="selected" value="0">English</option>
 	    			<option value="1">中文</option>
 	    		</select>
-	      	</div>
-	      	<div class="Register-Login-container" id="Register-Login" >
+			  </div> -->
+			  <div class="dropdown language">
+					<button class="btn btn-default dropdown-toggle" style="background: none; color: white" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Language
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a href="#">English</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">中文</a></li>
+						
+					</ul>
+				</div>
+	      	<!-- <div class="Register-Login-container" id="Register-Login" >
 	      		<div class="Register" id="Register">
 	      			<a href="register.html">Register</a>
 	      		</div>
@@ -105,15 +117,23 @@
 	      		</div>
 	      		<div class="userButton" id="userButton" style="display: none;">
 		      		<select onchange="redirect(this)">
-		      			<!--<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">投递稿件</a></option>
-		      			<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">查看稿件</a></option>-->
+		      			<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">投递稿件</a></option>
+		      			<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">查看稿件</a></option>
 		      			<option selected>Paper</option>
 		      			<option value="contribute.html">Submit</option>
 		      			<option value="showPapers.html">View</option>
 		    		</select>
 	      		</div>
 				<button class="quitButton" id="quitButton" style="display: none;background-color: #0A78C8">exit</button>
-	      	</div>
+			  </div> -->
+			  <div class="btn-group" role="group" aria-label="..." style="margin-top: 20px;">
+					<button type="button" class="btn btn-default" style="background: none; color: white">
+						<a href="cn_register.html">Register</a>
+					</button>
+					<button type="button" class="btn btn-default" style="background: none; color: white">
+						<a href="cn_login.html">Login</a>
+					</button>
+				</div>
 	      	
 	        <!--<a href="javascript:;" class="assistant-switch"><img src="./assets/images/icon-assistant-open.jpg" data-icon-open="./assets/images/icon-assistant-open.jpg" data-icon-close="./assets/images/icon-assistant-close.jpg" class="img-responsive">123</a>
 	        <ul>
@@ -125,7 +145,7 @@
 	            </li>
 	        </ul>-->
 	    </div>
-	    <!--assistant end-->
+	    <!--assistant end--> 
 	</header>
 	<div id="main">
 		<div class="news clearfix" style="text-align: justify;color:black;">
@@ -150,20 +170,20 @@
 		</div>
 		<div class="recommend clearfix" style="text-align: justify; color:black;">
 			<p>
-				<strong>General Chair:</strong>
+				<i class="glyphicon glyphicon-play"></i> <strong>General Chair:</strong>
 				<p>Guiyun Tian, University of Electronic Science and Technology of China/ Newcastle University</p>
-				<strong>Co-Chairs:</strong>
+				<i class="glyphicon glyphicon-play"></i> <strong>Co-Chairs:</strong>
 				<p>Zhenmao Chen, Xi’an Jiaotong University, China</p>
 				<p>Junming Lin, Eddysun (Xiamen) Electronic Co.Ltd.，China</p>
 				<p>Tianpeng Qiang, Special Equipment Safety Supervision Inspection Institute of Jiangsu Province, China</p>
 				<p>Xiaorong Gao, Southwest Jiaotong University, China</p>
 			</p>
 			<p>
-				<p><strong>Call for Paper: [1st CFP in PDF (30/10/2018); 2nd CFP in PDF]</strong></p>
+				<p><i class="glyphicon glyphicon-play"></i> <strong>Call for Paper: [1st CFP in PDF (30/10/2018); 2nd CFP in PDF]</strong></p>
 				<p>Authors are invited to submit short papers up to two pages relevant to the workshop topics. Papers should present original work not submitted or published elsewhere. Short papers are to be reviewed by our Scientific Committee. The accepted ones will be included in the workshop proceeding. Authors of accepted short papers are encouraged to submit full papers between 4-6 pages at the workshop, which will be peer reviewed for inclusion in a volume of the ISTP (EI) indexed book series “Studies on Applied Electromagnetic and Mechanics”, published by IOS Press. Outstanding papers will be recommended to SCI indexed journal such as Sensors.</p>
 			</p>
 			<p>
-				<p><strong>List of Topics:</strong></p> 
+				<p><i class="glyphicon glyphicon-play"></i> <strong>List of Topics:</strong></p> 
 			    <p>Advanced ENDE sensors</p> 	
 				<p>Analytical and numerical modeling of ENDE</p>
 				<p>Integrated ENDT&E systems</p>

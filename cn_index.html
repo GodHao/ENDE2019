@@ -42,18 +42,18 @@
 					<a href="javascript:void(0);" onclick="loadPage('cn_main.html');">
 						<div class="logo-text">
 							<span class="big">Welcome</span>
-							<span class="small"><i>to ENDE 2019!</i></span>
+							<span class="small">to ENDE 2019!</span>
 						</div>
 					</a>
 				</div>
 				<div class="search">
 					<div class="input-group">
-						<input class="form-search form-control" placeholder="搜索" type="search">
+						<!-- <input class="form-search form-control" placeholder="搜索" type="search">
 						<span class="input-group-btn">
 							<button onclick="search();" type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name="">
 								<span class="sr-only">搜索</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
 							</button>
-						</span>
+						</span> -->
 					</div>
 				</div>
 			</div>
@@ -86,82 +86,106 @@
 		</div>
 		<!--assistant begin-->
 		<div class="site-assistant">
-			<div class="language">
+			<div class="dropdown language">
+				<button class="btn btn-default dropdown-toggle" style="background: none; color: white" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					选择语言
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="#">中文</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">English</a></li>
+					
+				</ul>
+			</div>
+			<!-- <div class="language">
 				<select id="switch-language">
 					<option value="1" selected="selected">中文</option>
 					<option value="0">English</option>
 				</select>
+			</div> -->
+			<div class="btn-group" role="group" aria-label="..." style="margin-top: 20px;">
+				<button type="button" class="btn btn-default" style="background: none; color: white">
+					<a href="cn_register.html">注册</a>
+				</button>
+				<button type="button" class="btn btn-default" style="background: none; color: white">
+					<a href="cn_login.html">登陆</a>
+				</button>
 			</div>
-			<div class="Register-Login-container" id="Register-Login" >
+			<!-- <div class="Register-Login-container" id="Register-Login" >
 				<div class="Register" id="Register">
-					<a href="register.html">注册</a>
+					<a href="cn_register.html">注册</a>
 				</div>
 				<div class="Login" id="Login">
-					<a href="login.html">登录</a>
+					<a href="cn_login.html">登录</a>
 				</div>
 				<div class="userButton" id="userButton" style="display: none;">
 					<select onchange="redirect(this)">
-						<!--<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">投递稿件</a></option>
-                        <option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">查看稿件</a></option>-->
+						<option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">投递稿件</a></option>
+                        <option><a href="javascript:void(0);" onclick="redirect('showPapers.html');">查看稿件</a></option>
 						<option selected>论文</option>
 						<option value="contribute.html">提交</option>
 						<option value="showPapers.html">查看</option>
 					</select>
 				</div>
 				<button class="quitButton" id="quitButton" style="display: none;background-color: #0A78C8">退出</button>
-			</div>
+			</div> -->
 		</div>
 		<!--assistant end-->
 	</header>
 	<div id="main">
-		<div class="news clearfix" style="text-align: justify;color:black;">
-			<div class="content-title">
-				<p class="full-name">第24届国际电磁无损评估研讨会</p>
-				<p class="short-name">(ENDE2019)</p>
-				<div class="info-title">
-					<h3>四川成都龙之梦酒店</h3>
-					<h4>9月11日 - 14日</h4>
+			<div class="news clearfix" style="text-align: justify;color:black;">
+				<div class="content-title">
+					<p class="full-name">第24届国际电磁无损评估研讨会</p>
+					<p class="short-name">(ENDE2019)</p>
+					<div class="info-title">
+						<h3>四川成都龙之梦酒店</h3>
+						<h4>9月11日 - 14日</h4>
+					</div>
 				</div>
+				<img src="./assets/images/banner-m.jpg" alt="chengdu" class="img-responsive" width="100%;">
+				
+				<p>
+					第24届国际电磁无损评估研讨会（ENDE2019）将于2019年9月11日-14日在中国四川成都的龙之梦酒店举行。
+				</p>
+				<p>
+					今年的研讨会将由电子科技大学承办、四川大学和西南交通大学共同协办，研讨会包括技术专题、学生海报比赛、行业展览、参观游览及其他特别活动。第24届研讨会的主题将聚焦电磁无损评估的理论和应用研究，为参会嘉宾提供一个进行思想、学术与技术交流的平台和获取最新研究成果的绝佳机会。
+				</p>
+				<p>
+					我们诚挚地欢迎您加入我们，参加2019年在“天府之国”举行的精彩活动！
+				</p>
 			</div>
-			<img src="./assets/images/banner-m.jpg" alt="chengdu" class="img-responsive" width="100%;">
-			<p>
-				第24届国际电磁无损评估研讨会（ENDE2019）将于2019年9月11日-14日在中国四川成都的龙之梦酒店举行。
-			</p>
-			<p>
-				今年的研讨会将由电子科技大学承办、四川大学和西南交通大学共同协办，研讨会包括技术专题、学生海报比赛、行业展览、参观游览及其他特别活动。第24届研讨会的主题将聚焦电磁无损评估的理论和应用研究，为参会嘉宾提供一个进行思想、学术与技术交流的平台和获取最新研究成果的绝佳机会。
-			</p>
-			<p>
-				我们诚挚地欢迎您加入我们，参加2019年在“天府之国”举行的精彩活动！
-			</p>
+			<div class="recommend clearfix" style="text-align: justify; color:black;">
+				<p>
+					<i class="glyphicon glyphicon-play"></i> <strong>大会主席：</strong>
+				<p>田贵云, 电子科技大学 /纽卡斯尔大学</p>
+				<p>
+					<i class="glyphicon glyphicon-play"></i> <strong>联合主席：</strong>
+				</p>
+				<p>陈振茂，西安交通大学</p>
+				<p>林俊明，爱德森院士专家工作站</p>
+				<p>强天鹏，江苏省特种设备安全监督检验研究院</p>
+				<p>高晓蓉，西南交通大学</p>
+				</p>
+				<p>
+				<p><i class="glyphicon glyphicon-play"></i> <strong>论文征集：</strong></p>
+				<p>参会作者提交不超过两页的与研讨会主题相关的简短论文。提交的论文需是未在其它地方提交或发布的原创作品。论文评审委员会将对提交的简短论文进行评审。被接收的论文将纳入研讨会会议论文集。鼓励已接收的短文的作者提交完整的论文（长4-6页），完整论文将提交同行评审，通过评审的完整论文将纳入ISTP索引, 由IOS Press系列丛书“应用电磁与力学研究”出版。优秀论文将被推荐给SCI索引的期刊，如《Sensors》。</p>
+				</p>
+				<p>
+				<p><i class="glyphicon glyphicon-play"></i> <strong>稿件主题涉及但不仅限于以下：</strong></p>
+				<p>先进的ENDE传感器</p>
+				<p>ENDE的分析和数值模拟</p>
+				<p>ENDT＆E集成/融合系统</p>
+				<p>反演问题、成像和信号处理</p>
+				<p>ENDE量化无损评估和人工智能</p>
+				<p>材料表征</p>
+				<p>机械结构的监测和诊断</p>
+				<p>ENDE新发展</p>
+				<p>ENDE工业创新应用</p>
+				</p>
+			</div>
 		</div>
-		<div class="recommend clearfix" style="text-align: justify; color:black;">
-			<p>
-				<strong>大会主席：</strong>
-			<p>田贵云, 电子科技大学 /纽卡斯尔大学</p>
-			<strong>联合主席：</strong>
-			<p>陈振茂，西安交通大学</p>
-			<p>林俊明，爱德森院士专家工作站</p>
-			<p>强天鹏，江苏省特种设备安全监督检验研究院</p>
-			<p>高晓蓉，西南交通大学</p>
-			</p>
-			<p>
-			<p><strong>论文征集：</strong></p>
-			<p>参会作者提交不超过两页的与研讨会主题相关的简短论文。提交的论文需是未在其它地方提交或发布的原创作品。论文评审委员会将对提交的简短论文进行评审。被接收的论文将纳入研讨会会议论文集。鼓励已接收的短文的作者提交完整的论文（长4-6页），完整论文将提交同行评审，通过评审的完整论文将纳入ISTP索引, 由IOS Press系列丛书“应用电磁与力学研究”出版。优秀论文将被推荐给SCI索引的期刊，如《Sensors》。</p>
-			</p>
-			<p>
-			<p><strong>稿件主题涉及但不仅限于以下：</strong></p>
-			<p>先进的ENDE传感器</p>
-			<p>ENDE的分析和数值模拟</p>
-			<p>ENDT＆E集成/融合系统</p>
-			<p>反演问题、成像和信号处理</p>
-			<p>ENDE量化无损评估和人工智能</p>
-			<p>材料表征</p>
-			<p>机械结构的监测和诊断</p>
-			<p>ENDE新发展</p>
-			<p>ENDE工业创新应用</p>
-			</p>
-		</div>
-	</div>
+	
 	<footer>
 		<div class="container" style="color:black;">
 			<div class="clearfix footer-nav">

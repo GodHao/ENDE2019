@@ -12,25 +12,60 @@
 	<body background="assets/images/803120d8ff16b0f897a8e705fc44d1fb_1_180211222526_1.jpg" style="background-size: cover;">
 		<div class=" container" style="background-color:initial;">
 			<form class="form-horizontal">
-			  <div class="form-border">	
+			  <div class="form-border">
 				  <div class="form-group">
-				    <label class="col-sm-4 control-label">Email</label>
+				    <label class="col-sm-4 control-label">用户名</label>
 				    <div class="col-sm-8">
-				    	<input type="email" class="form-control"  placeholder="Email" id="email" name="email" >
+				    	<input type="text" class="form-control" placeholder="请输入用户名" id="name" name="name" >
+				    	<span class="help-block"></span>
+				    </div>
+				  </div>	
+				  <div class="form-group">
+				    <label class="col-sm-4 control-label">邮箱</label>
+				    <div class="col-sm-8">
+				    	<input type="email" class="form-control"  placeholder="请输入邮箱地址" id="email" name="email" >
 				    	<span class="help-block"></span>
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <label class="col-sm-4 control-label">Password</label>
+				    <label class="col-sm-4 control-label">密码</label>
 				    <div class="col-sm-8">
-				    	<input type="password" class="form-control"  placeholder="Password" id="password" name="password" >
+				    	<input type="password" class="form-control"  placeholder="输入密码" id="password" name="password" >
 				    	<span class="help-block"></span>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  	<label class="col-sm-4 control-label">职称</label>
+				  	<div class="col-sm-6">
+					  	<select class="form-control" name="title">				  	
+							<option value="1">Professor</option>
+							<option value="2">Dr.</option>
+							<option value="3">Mr.</option>
+							<option value="4">Ms.</option>
+							<option value="5">Miss</option>				
+					  	</select>
+				  	</div>
+				  </div>
+				  <div class="form-group">
+				  	<label class="col-sm-4 control-label">国籍</label>
+				  	<div class="col-sm-5">
+					  	<select class="form-control" name="nationality">				  	
+							<option value="China">中国</option>
+							<option value="England">英国</option>
+							<option value="US">美国</option>				
+					  	</select>
+				  	</div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-4 control-label">学校机构</label>
+				    <div class="col-sm-7">
+				    	<input type="text" class="form-control"  name="学校机构">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				  	<div class="col-sm-4"></div>
 				  	<div class="col-sm-2">
-				  		<button type="button" class="btn btn-default" id="LoginSubmit" style="background-color: #28a745; color: #fff;">Login</button>
+				  		<button type="button" class="btn btn-default" id="RegisterSubmit" style="background-color: #28a745; color: #fff;" >提交</button>
 				  	</div>
 				  </div>
 			  </div>
@@ -38,12 +73,12 @@
 	    </div>
 	   <script src="./assets/js/common.js"></script>
 	   <script type="text/javascript">
-	    	$("#LoginSubmit").click(function(){
+	    	$("#RegisterSubmit").click(function(){
 	    		if(!validate_form())  //若验证成功，则发送请求
 	    		{
 		    		$.ajax({
 		    			type:"POST",
-		    			url:baseURL+"login",
+		    			url:baseURL+"register",
 		    			data:$("form").serialize(),
 		    			success:function(result){
 		    				validate_result(result);
@@ -55,18 +90,15 @@
 	    		}
 	    		else
 	    		{
-	    			alert("表单格式错误");
+	    			alert("Format error");
 	    		}
 	    	});
 	    	
 	    	function validate_result(result){
 	    		if(result.code=="200")
 	    		{
-	    			var user = result.data.user;
-	    			var userStringData = JSON.stringify(user);
-	    			setCookie("username",user.name);
-	    			setCookie("userid",user.id);
-	    			window.location.href = baseURL+"index.html"; 
+	    			alert("Please go to the mailbox to verify and login!");
+	    			window.location.href = baseURL+"index.html";
 	    		}
 	    		else
 	    		{
@@ -79,6 +111,25 @@
 	    	}
 	    	function validate_form(){
 	    		var errorFlag = false;
+    			var UserName = $("#name").val();
+    			var regName = /^[a-zA-Z0-9\u2E80-\u9FFF_-]{2,10}$/;
+    			if(UserName == "")
+    			{
+    				show_validate_info("#name","error","用户名不能为空");
+    				errorFlag = true;
+    			}
+    			else
+    			{
+	    			if(!regName.test(UserName))
+	    			{
+	    				show_validate_info("#name","error","用户名必须在2-10个中文、英文字母和数字的组合");
+	    				errorFlag = true;
+	    			}
+	    			else
+	    			{
+	    				show_validate_info("#name","success","");
+	    			}
+	    		}
     			var UserEmail = $("#email").val();
     			var regEmail = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     			if(UserEmail == "")
@@ -106,8 +157,16 @@
     				errorFlag = true;
     			}
     			else
-    			{					
-	    			show_validate_info("#password","success","");	    				
+    			{
+					if(!regPassword.test(UserPassword))
+	    			{
+	    				show_validate_info("#password","error","密码应该为6-15个英文字母和数字的组合");
+	    				errorFlag = true;
+	    			}
+	    			else
+	    			{
+	    				show_validate_info("#password","success","");
+	    			}    				
     			}
     			return errorFlag;
 	    	}

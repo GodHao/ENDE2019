@@ -14,28 +14,28 @@
 			<form class="form-horizontal">
 			  <div class="form-border">
 				  <div class="form-group">
-				    <label class="col-sm-4 control-label">用户名</label>
+				    <label class="col-sm-4 control-label">username</label>
 				    <div class="col-sm-8">
 				    	<input type="text" class="form-control" placeholder="name" id="name" name="name" >
 				    	<span class="help-block"></span>
 				    </div>
 				  </div>	
 				  <div class="form-group">
-				    <label class="col-sm-4 control-label">邮箱</label>
+				    <label class="col-sm-4 control-label">e-mail</label>
 				    <div class="col-sm-8">
 				    	<input type="email" class="form-control"  placeholder="Email" id="email" name="email" >
 				    	<span class="help-block"></span>
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <label class="col-sm-4 control-label">密码</label>
+				    <label class="col-sm-4 control-label">password</label>
 				    <div class="col-sm-8">
 				    	<input type="password" class="form-control"  placeholder="password" id="password" name="password" >
 				    	<span class="help-block"></span>
 				    </div>
 				  </div>
 				  <div class="form-group">
-				  	<label class="col-sm-4 control-label">职称</label>
+				  	<label class="col-sm-4 control-label">title</label>
 				  	<div class="col-sm-6">
 					  	<select class="form-control" name="title">				  	
 							<option value="1">Professor</option>
@@ -47,7 +47,7 @@
 				  	</div>
 				  </div>
 				  <div class="form-group">
-				  	<label class="col-sm-4 control-label">国籍</label>
+				  	<label class="col-sm-4 control-label">nationality</label>
 				  	<div class="col-sm-5">
 					  	<select class="form-control" name="nationality">				  	
 							<option value="China">China</option>
@@ -57,7 +57,7 @@
 				  	</div>
 				  </div>
 				  <div class="form-group">
-				    <label class="col-sm-4 control-label">学校机构</label>
+				    <label class="col-sm-4 control-label">affiliation</label>
 				    <div class="col-sm-7">
 				    	<input type="text" class="form-control"  name="affiliation">
 				    </div>
@@ -90,14 +90,14 @@
 	    		}
 	    		else
 	    		{
-	    			alert("表单格式错误");
+	    			alert("Format error");
 	    		}
 	    	});
 	    	
 	    	function validate_result(result){
 	    		if(result.code=="200")
 	    		{
-	    			alert("请前往邮箱验证并登录!");
+	    			alert("Please go to the mailbox to verify and login!");
 	    			window.location.href = baseURL+"index.html";
 	    		}
 	    		else
@@ -115,14 +115,14 @@
     			var regName = /^[a-zA-Z0-9\u2E80-\u9FFF_-]{2,10}$/;
     			if(UserName == "")
     			{
-    				show_validate_info("#name","error","用户名不能为空");
+    				show_validate_info("#name","error","User name cannot be empty");
     				errorFlag = true;
     			}
     			else
     			{
 	    			if(!regName.test(UserName))
 	    			{
-	    				show_validate_info("#name","error","用户名必须在2-10个中文、英文字母和数字的组合");
+	    				show_validate_info("#name","error","User names must be in 2-10 combinations of Chinese and English letters and numbers");
 	    				errorFlag = true;
 	    			}
 	    			else
@@ -134,14 +134,14 @@
     			var regEmail = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     			if(UserEmail == "")
     			{
-    				show_validate_info("#email","error","邮箱不能为空");
+    				show_validate_info("#email","error","Email cannot be empty");
     				errorFlag = true;
     			}
     			else
     			{
 	    			if(!regEmail.test(UserEmail))
 	    			{
-	    				show_validate_info("#email","error","邮箱格式错误");
+	    				show_validate_info("#email","error","Error in Email format");
 	    				errorFlag = true;
 	    			}
 	    			else
@@ -153,14 +153,14 @@
     			var regPassword = /^[a-zA-Z0-9_-]{6,15}$/;
     			if(UserPassword == "")
     			{
-    				show_validate_info("#password","error","密码不能为空");
+    				show_validate_info("#password","error","Password cannot be empty");
     				errorFlag = true;
     			}
     			else
     			{
 					if(!regPassword.test(UserPassword))
 	    			{
-	    				show_validate_info("#password","error","密码应该为6-15个英文字母和数字的组合");
+	    				show_validate_info("#password","error","The password should be a combination of 6-15 English letters and numbers");
 	    				errorFlag = true;
 	    			}
 	    			else
